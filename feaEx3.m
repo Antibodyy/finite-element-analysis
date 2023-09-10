@@ -1,4 +1,4 @@
-%% Material propertiez and Geometry
+%% Material properties and Geometry
 
 E = 200e6;
 L= [25*0.0254, 75*0.0254];
