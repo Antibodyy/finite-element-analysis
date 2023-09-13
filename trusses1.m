@@ -24,7 +24,7 @@ FG = zeros(tdof,1);
 
 for e = 1:ne
     KeL = (E*A/L(e))*[1 -1;-1 1];
-    Te = [cos(theta(e)*pi/180) sin(theta(e)*pi/180) 0 0;0 0 cos(theta(e)*i/180) sin(theta(e)*pi/180)];
+    Te = [cos(theta(e)*pi/180) sin(theta(e)*pi/180) 0 0;0 0 cos(theta(e)*pi/180) sin(theta(e)*pi/180)];
     KeG = transpose(Te)*KeL*Te;
     for i = 1:dofe
         for j = 1:dofe
