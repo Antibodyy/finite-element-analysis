@@ -1,7 +1,7 @@
 E = 200e6;
 L = [25*0.0254, 75*0.0254];
 ne1 = 2;
-ne2 = [2, 6, 14, 30];
+ne2 = [2];
 nne = 2;
 dofn = 1;
 dofe = nne*dofn;
@@ -50,13 +50,16 @@ for e = 1:length(ne2)
         end
     end
     
-    Fg(1,1) = 135;
+    Fg(1,1) = -135;
     Kg(:,tdof) = 0;
     Kg(tdof,:) = 0;
     Kg(tdof,tdof) = 1;
     Fg(tdof,1) = 0;
     Ug = linsolve(Kg, Fg);
+
     plot(ne,Ug(1,1),'r*--');
     hold on;
     disps(1,e) = Ug(1,1);
+
+    Les = 0;
 end
