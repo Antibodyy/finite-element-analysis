@@ -11,7 +11,13 @@ dofe = nne*dofn;
 tdof = nn*dofn;
 
 nodalCONN = [1 2;1 3;2 3;2 4;3 4;3 5;4 5;4 6;5 6;5 7;6 7];
-CONN = [1 2 3 4;1 2 5 6;3 4 5 6;3 4 7 8;5 6 7 8;5 6 9 10;7 8 9 10;7 8 11 12;9 10 11 12;9 10 13 14;11 12 13 14];
+CONN = zeros(ne,2*nne);
+for v = 1:ne
+    CONN(v,1) = (nodalCONN(v,1)*2)-1;
+    CONN(v,2) = (nodalCONN(v,1)*2);
+    CONN(v,3) = (nodalCONN(v,2)*2)-1;
+    CONN(v,4) = (nodalCONN(v,2)*2);
+end
 
 x = [0 L1/2 L1 3*L1/2 2*L1 5*L1/2 3*L1];
 y = [0 L2 0 L2 0 L2 0];
