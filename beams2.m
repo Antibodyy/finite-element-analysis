@@ -23,7 +23,7 @@ CONN = [1 2 3 4;3 4 5 6];
 %% Assembly of Stiffness Matrix
 
 for e = 1:ne  
-    Ke = (E*I/(L(e)^3))*[12 6*L(e) -12 6*L(e); 6*L(e) 4*(L(e)^2) -6*L(e) 2*(L(e)^2); -12 6*L(e) 12 -6*L(e); 6*L(e) 2*(L(e)^2) -6*L(e) 4*(L(e)^2)];
+    Ke = (E*I/(L(e)^3))*[12 6*L(e) -12 6*L(e); 6*L(e) 4*(L(e)^2) -6*L(e) 2*(L(e)^2); -12 -6*L(e) 12 -6*L(e); 6*L(e) 2*(L(e)^2) -6*L(e) 4*(L(e)^2)];
     Fe = [q0(e)*L(e)/2; q0(e)*(L(e)^2)/12; q0(e)*L(e)/2; -q0(e)*(L(e)^2)/12];
     for i = 1:dofe
         for j = 1:dofe
